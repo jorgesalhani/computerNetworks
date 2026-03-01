@@ -1,0 +1,65 @@
+'' theme.wsd
+'' A clean, high-contrast light theme for professional documentation
+
+<style>
+sequenceDiagram {
+  '' Background and Global Font
+  BackgroundColor #ffffff
+  RoundCorner 5
+  
+  participant {
+    BackgroundColor #f6f8fa
+    FontColor #24292f
+    FontSize 12
+    FontStyle bold
+    LineColor #d0d7de
+    Padding 15
+  }
+  
+  lifeLine {
+    LineColor #8c959f
+    BackgroundColor #f6f8fa
+  }
+  
+  arrow {
+    LineColor #0969da
+    FontColor #24292f
+    FontSize 10
+  }
+  
+  box {
+    BackgroundColor #fdfdfd
+    LineColor #d0d7de
+    FontColor #57606a
+  }
+
+  note {
+    BackgroundColor #fdfdfd
+    LineColor #d0d7de
+    FontColor #57606a
+    FontSize 10
+  }
+}
+</style>
+
+skinparam responseMessageBelowArrow true
+
+skinparam sequence {
+    '' Spacing and Alignment
+    MessageAlign center
+    ParticipantPadding 30
+    BoxPadding 10
+    
+    '' Group (Alt, Opt, Loop) styling
+    GroupBackgroundColor #f6f8fa
+    GroupBodyBackgroundColor #ffffff
+    GroupHeaderFontColor #24292f
+    GroupBorderColor #d0d7de
+    GroupFontColor #24292f
+    
+    '' Note styling
+    NoteBackgroundColor #fff8c5
+    NoteBorderColor #d4a72c
+    NoteFontColor #24292f
+    NoteFontSize 8
+}

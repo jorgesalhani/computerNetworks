@@ -1,0 +1,79 @@
+@startuml
+!include theme.wsd
+
+title OPERAÇÃO DE SAQUE
+
+actor Usuário as usr
+participant "caixa eletrônico" as caixa
+participant "computador central (banco)" as banco
+
+usr -> caixa : [Usuario insere cartão]
+activate caixa
+
+caixa -> banco : Inserir cartão
+activate banco
+
+banco -> banco : [Validar cartão]
+
+caixa <- banco : [Cartão reconhecido].\nDiponibilizar ações
+deactivate banco
+note right
+  Ações possíveis:
+    1. Consultar saldo
+    2. Sacar valor
+end note
+
+usr <- caixa : Diponibilizar ações
+deactivate caixa
+
+usr -> caixa : [Usuario escolhe saque]
+activate caixa
+
+caixa -> banco : Escolher saque
+activate banco
+
+caixa <- banco : [Escolha válida].\nSolicitar valor
+deactivate banco
+
+usr <- caixa : Solicitar valor
+deactivate caixa
+
+usr -> caixa : [Usuario insere valor]
+activate caixa
+
+caixa -> banco : Sacar valor
+activate banco
+
+banco -> banco : [Consultar saldo]
+
+banco -> banco : [Validar saldo suficiente]
+
+caixa <- banco : [Saldo suficiente].\nSolicitar senha
+deactivate banco
+
+usr <- caixa : Solicitar senha
+deactivate caixa
+
+usr -> caixa : [Usuario insere senha]
+activate caixa
+
+caixa -> banco : Inserir senha
+activate banco
+
+caixa <- banco : [Senha válida].\nSacar dinheiro
+deactivate banco
+
+usr <- caixa : [Usuario saca dinheiro]
+
+caixa -> banco : [Saque bem sucedido].\nSubtrair valor
+activate banco
+
+banco -> banco : [subtrair valor sacado]
+
+caixa <- banco : [Saque bem sucedido]
+deactivate banco
+
+usr <- caixa : [Saque bem sucedido!]
+deactivate caixa
+
+@enduml
