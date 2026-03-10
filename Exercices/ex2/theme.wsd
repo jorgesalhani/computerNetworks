@@ -1,0 +1,41 @@
+' ---------- GENERAL STYLE ----------
+skinparam shadowing false
+skinparam roundcorner 15
+skinparam defaultTextAlignment center
+skinparam linetype ortho
+
+' ---------- RECTANGLES ----------
+skinparam rectangle {
+    BorderColor #3b6ea5
+    FontColor #222222
+    BackgroundColor #eef4ff
+    MinimumWidth 140
+    MinimumHeight 60
+}
+
+' ---------- PACKAGES ----------
+skinparam package {
+    BorderColor #bbbbbb
+    BackgroundColor transparent
+    FontColor #555555
+    FontSize 14
+}
+
+skinparam packageStyle rectangle
+
+' ---------- LAYOUT ----------
+skinparam nodesep 40
+skinparam ranksep 50
+skinparam padding 10
+
+' ---------- ARROWS ----------
+skinparam ArrowColor #666666
+skinparam ArrowThickness 1
+
+' ---------- NOTES ----------
+skinparam note {
+    FontSize 11
+    Padding 3
+    BorderColor #bbbbbb
+    BackgroundColor #fff6e3
+}

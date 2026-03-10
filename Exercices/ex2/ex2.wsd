@@ -1,0 +1,52 @@
+@startuml
+!include theme.wsd
+
+title MODELO DE REFERÊNCIA OSI/ISO
+
+package "Specialty Paint Corp." {
+    together {
+        rectangle "Presidencia" as spcPresidencia
+        rectangle "Jurídico" as spcJuridico
+        rectangle "Engenharia" as spcEngen
+    }
+}
+
+package "Cervejaria Local Corp." {
+    together {
+        rectangle "Presidencia" as clcPresidencia
+        rectangle "Jurídico" as clcJuridico
+        rectangle "Engenharia" as clcEngen
+    }
+}
+
+spcPresidencia -down-> spcJuridico : 1
+
+spcJuridico -down-> spcEngen : 2
+
+clcPresidencia <-down- clcJuridico : 1
+
+clcJuridico <-down- clcEngen : 2
+
+spcPresidencia .right. clcPresidencia
+
+spcJuridico .right. clcJuridico
+
+spcEngen -right-> clcEngen : 3
+
+legend center
+Primitivas, protocolos e serviços
+-- 1 --
+**Primitiva**: Solicitar análise
+**Serviço**: Analisar questões financeiras
+**Protocolo**: Contato | Telefone
+-- 2 --
+**Primitiva**: Encaminhar relatório
+**Serviço**: Analisar aspectos legais
+**Protocolo**: Telefone
+-- 3 --
+**Primitiva**: Contactar
+**Serviço**: Discutir aspectos técnicos
+**Protocolo**: Relatório
+end legend
+
+@enduml
